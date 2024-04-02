@@ -1,0 +1,37 @@
+rootProject.name = 'Utechaway'
+include ':react-native-google-signin'
+project(':react-native-google-signin').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-google-signin/android')
+
+// video-sdk
+include ':rnwebrtc'
+project(':rnwebrtc').projectDir = new File(rootProject.projectDir, '../node_modules/@videosdk.live/react-native-webrtc/android')
+
+include ':rnincallmanager'
+project(':rnincallmanager').projectDir = new File(rootProject.projectDir, '../node_modules/@videosdk.live/react-native-incallmanager/android')
+
+include ':rnfgservice'
+project(':rnfgservice').projectDir = new File(rootProject.projectDir, '../node_modules/@videosdk.live/react-native-foreground-service/android')
+// end
+
+include ':react-native-blob-util'
+project(':react-native-blob-util').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-blob-util/android')
+include ':react-native-pdf'
+project(':react-native-pdf').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pdf/android')
+include ':react-native-paypal-bridge-sdk'
+project(':react-native-paypal-bridge-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-paypal-bridge-sdk/android')
+include ':react-native-paypal-bridge-sdk'
+project(':react-native-paypal-bridge-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-paypal-bridge-sdk/android')
+include ':@react-native-community_viewpager'
+project(':@react-native-community_viewpager').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/viewpager/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+includeBuild('../node_modules/react-native-gradle-plugin')
+
+// apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+
+if (settings.hasProperty("newArchEnabled") && settings.newArchEnabled == "true") {
+    include(":ReactAndroid")
+    project(":ReactAndroid").projectDir = file('../node_modules/react-native/ReactAndroid')
+}
